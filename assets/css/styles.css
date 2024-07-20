@@ -1,0 +1,115 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #343a40;
+    color: #fff;
+    transition: left 0.3s;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+#content {
+    margin-left: 250px;
+    height: 100%;
+    padding: 20px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: white;
+}
+
+#sidebar ul li a:hover {
+    background-color: #525a61;
+    color: white;
+    text-decoration: none;
+}
+
+#sidebarCollapse {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10000;
+    transition: left 0.3s;
+}
+
+#sidebarCollapse.active {
+    left: 250px;
+}
+
+#sidebarCollapse i {
+    font-size: 1.2rem;
+}
+
+#sidebarCollapse span {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+/* Стили для основного контейнера пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination .active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination li a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+}
+
+.pagination li a:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
