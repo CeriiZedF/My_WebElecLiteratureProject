@@ -22,3 +22,10 @@
  - Общение (чат) с пользователями (25% завершено)
  - Писать комментарии к книгам и главам (20% завершено)
 
+![Screenshot 2024-07-20 174020](https://github.com/user-attachments/assets/39e81a7a-4efb-43cf-84ef-8e3edc039ad7)
+
+![Screenshot 2024-07-20 174005](https://github.com/user-attachments/assets/e004d88f-bf5f-4fa5-8cd5-5ebef2d2a324)
+
+![Screenshot 2024-07-20 173952](https://github.com/user-attachments/assets/fde2d32a-8020-47f2-9a0f-aa77c41e25ec)
+
+![Screenshot 2024-07-16 075831](https://github.com/user-attachments/assets/140282f8-cb60-4b02-a182-a8339dfeb318)
