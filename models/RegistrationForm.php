@@ -15,6 +15,7 @@ class RegistrationForm extends Model
     public $avatar;
     public $avatarOption; 
     public $avatarFile; 
+
     public function rules()
     {
         return [

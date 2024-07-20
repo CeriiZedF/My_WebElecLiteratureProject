@@ -22,27 +22,7 @@ class LiteratureController extends Controller
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['index', 'view', 'create', 'update', 'delete', 'view-chapter', 'add-like', 'add-bookmark'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index'],
-                        'roles' => ['?', '@'], 
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['view', 'create', 'update', 'delete', 'view-chapter', 'add-like', 'add-bookmark'],
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-        ];
-    }
+    
 
     /**
      * Lists all Literature models.
@@ -89,16 +69,33 @@ class LiteratureController extends Controller
      */
     public function actionCreate()
     {
+        // Create a new Literature model instance
         $model = new Literature();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+    
+        // Check if the user is logged in
+        if (Yii::$app->user->isGuest) {
+            // Redirect to login page if the user is not logged in
+            return $this->redirect(['user/login']);
         }
-
+    
+        // Populate the model with the logged-in user's ID
+        $model->author_id = Yii::$app->user->id;
+    
+        // Load form data into the model
+        if ($model->load(Yii::$app->request->post())) {
+            // Validate and save the model
+            if ($model->save()) {
+                // Redirect to the view page if save was successful
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+    
+        // Render the create view
         return $this->render('create', [
             'model' => $model,
         ]);
     }
+    
 
     public function actionCreateChapter($literature_id)
     {
@@ -245,6 +242,7 @@ class LiteratureController extends Controller
     {
         return $this->hasMany(Chapter::className(), ['literature_id' => 'id']);
     }
+    
 
     
 }

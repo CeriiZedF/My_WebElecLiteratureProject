@@ -82,6 +82,25 @@ class UserController extends Controller
         ]);
     }
 
+    public function actionCreate()
+    {
+        $model = new Literature();
+
+        if ($model->load(Yii::$app->request->post())) {
+            // Set the author_id to the current user's ID
+            $model->author_id = Yii::$app->user->id;
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Literature created successfully.');
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
     public function actionProfile()
     {
         $user = Yii::$app->user->identity;
@@ -168,20 +187,7 @@ class UserController extends Controller
             'model' => $model,
         ]);
     }
-
-    public function actionCreate()
-    {
-        $literature = new Literature();
-
-        if ($literature->load(Yii::$app->request->post()) && $literature->save()) {
-            return $this->redirect(['view', 'id' => $literature->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $literature,
-        ]);
-    }
-
+    
     public function actionCreateChapter($literature_id)
     {
         $chapter = new Chapter();

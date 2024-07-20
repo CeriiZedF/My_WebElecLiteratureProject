@@ -28,8 +28,8 @@ use yii\widgets\Pjax;
                             <img src="<?= Yii::$app->user->identity->getAvatarUrl() ?>" class="rounded-circle" alt="Avatar" width="30" height="30">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><?= Html::a('Мой аккаунт', ['user/account'], ['class' => 'dropdown-item']) ?></li>
-                            <li><?= Html::a('Настройки', ['user/settings'], ['class' => 'dropdown-item']) ?></li>
+                            <li><?= Html::a('Мой аккаунт', ['user/account'], ['class' => 'dropdown-item', 'data-pjax' => '0']) ?></li>
+                            <li><?= Html::a('Настройки', ['user/settings'], ['class' => 'dropdown-item', 'data-pjax' => '0']) ?></li>
                             <li>
                                 <?= Html::beginForm(['/user/logout'], 'post')
                                     . Html::submitButton('Выход', ['class' => 'dropdown-item'])

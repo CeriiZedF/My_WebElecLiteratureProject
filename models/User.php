@@ -39,7 +39,6 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'email', 'password_hash', 'auth_key'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['username', 'email'], 'string', 'max' => 255],
-            ['email', 'email'],
             ['email', 'unique'],
             ['username', 'unique'],
             ['avatar', 'url', 'defaultScheme' => 'http'],
@@ -192,5 +191,5 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-    
+
 }
