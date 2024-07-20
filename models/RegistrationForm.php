@@ -61,7 +61,6 @@ class RegistrationForm extends Model
                 
             $auth = Yii::$app->authManager;
             $role = $auth->getRole('user');
-            console.info($role);
             if ($role !== null) {
                 if ($auth->assign($role, $user->id)) {
                     Yii::info('Role "user" assigned to user ID: ' . $user->id);

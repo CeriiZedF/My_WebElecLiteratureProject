@@ -152,9 +152,16 @@ class UserController extends Controller
     {
         $model = new RegistrationForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->register()) {
-            Yii::$app->session->setFlash('success', 'Registration successful!');
-            return $this->redirect(['login']); 
+        if ($model->load(Yii::$app->request->post())) {
+            // dump($model); die;
+            if($model->register()){
+                Yii::$app->session->setFlash('success', 'Registration successful!');
+                return $this->redirect(['login']); 
+            }
+            else{
+                Yii::$app->session->setFlash('failed', 'Registration failed!');
+                return $this->redirect(['#']); 
+            }
         }
 
         return $this->render('register', [

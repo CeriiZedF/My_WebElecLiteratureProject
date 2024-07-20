@@ -17,21 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <div class="literature-form">
 
-        <?php $form = ActiveForm::begin(); ?>
-
-        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-        <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
-        <?= $form->field($model, 'author_id')->textInput() ?>
-
-        <?= $form->field($model, 'views')->textInput() ?>
-
-        <?= $form->field($model, 'likes')->textInput() ?>
-
-        <?= $form->field($model, 'bookmarks')->textInput() ?>
-
-        <?= $form->field($model, 'comments_enabled')->checkbox() ?>
+        
 
         <div class="form-group">
             <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
